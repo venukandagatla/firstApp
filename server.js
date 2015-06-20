@@ -33,6 +33,12 @@ router.route('/quote/random')
     res.json(q);
 });
 
+//adding route for getting all quotes
+router.route('/quote/all')
+  .get(function(req, res){
+    res.json(quotes);
+});
+
 var port = process.env.PORT || 8000;        // set our port
 // more routes for our API will happen here
 
