@@ -2,6 +2,13 @@ var express = require('express');
 
 var app = express();
 
+var bodyParser = require('body-parser');
+
+// configure app to use bodyParser()
+// this will let us get the data from a POST
+app.use(bodyParser.urlencoded({ extended: true }));
+app.use(bodyParser.json());
+
 var quotes = [
   { author : 'Audrey Hepburn', text : "Nothing is impossible, the word itself says 'I'm possible'!"},
   { author : 'Walt Disney', text : "You may not realize it when it happens, but a kick in the teeth may be the best thing in the world for you"},
@@ -48,6 +55,19 @@ router.route('/quote/:id')
   }  
 var q = quotes[req.params.id];
   res.json(q);
+});
+
+//adding route for saving quote
+router.route('/quote')
+  .post(function(req, res){
+ console.log(req);
+var newQuote = {
+    'author' : req.body.author,
+    'text' : req.body.text
+  }; 
+ 
+quotes.push(newQuote);
+  res.json(true);
 });
 
 var port = process.env.PORT || 8000;        // set our port
