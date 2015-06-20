@@ -1,4 +1,12 @@
+<<<<<<< HEAD
 npm install
 
 npm install express --save
 
+=======
+commands:
+
+npm install
+npm install express --save
+node server.js
+>>>>>>> step3

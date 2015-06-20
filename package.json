@@ -3,6 +3,6 @@
   "description": "a fine piece of express art",
   "version": "0.0.1",
   "dependencies": {
-    "express": "^4.0.0"
+    "express": "^4.12.4"
   }
 }
