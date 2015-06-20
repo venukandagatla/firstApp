@@ -39,6 +39,17 @@ router.route('/quote/all')
     res.json(quotes);
 });
 
+//adding route for getting quote by id
+router.route('/quote/:id')
+  .get(function(req, res){
+  if(quotes.length <= req.params.id || req.params.id < 0) {
+    res.statusCode = 404;
+    return res.send('Error 404: No quote found');
+  }  
+var q = quotes[req.params.id];
+  res.json(q);
+});
+
 var port = process.env.PORT || 8000;        // set our port
 // more routes for our API will happen here
 
